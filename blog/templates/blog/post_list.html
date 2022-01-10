@@ -8,11 +8,13 @@
             <h1><a href="/">My Blog</a></h1>
         </header>
 
-        <article>
-            <time>published: 09.01.2022, 16:18</time>
-            <h2><a href="">My first post</a></h2>
-            <p> Are you a beginner (CEFR level A1) learner of English? This section offers reading practice to help you understand simple information, words and sentences about known topics. Texts include posters, messages, forms and timetables.</p>
-        </article>
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date  }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p> Are you a beginner (CEFR level A1) learner of English? This section offers reading practice to help you understand simple information, words and sentences about known topics. Texts include posters, messages, forms and timetables.</p>
+            </article>
+        {% endfor %}
         <article>
             <time>published: 09.01.2022, 16:23</time>
             <h2><a href="">My second post</a></h2>
