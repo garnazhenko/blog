@@ -1,12 +1,5 @@
-from django.contrib.auth.views import LoginView
-from .forms import LoginUserForm
 from .models import Post
 from django.views import generic
-from .forms import RegisterUserForm
-from django.contrib.auth import login, logout
-from django.urls import reverse_lazy
-from .forms import User
-from django.shortcuts import redirect
 
 
 class PostList(generic.ListView):
@@ -33,26 +26,3 @@ class PostEdit(generic.UpdateView):
     fields = ['title', 'text', 'author']
 
 
-class RegisterUser(generic.CreateView):
-    template_name = 'blog/register.html'
-    form_class = RegisterUserForm
-
-    def form_valid(self, form):
-        user = form.save()
-        login(self.request, user)
-        return redirect('home')
-
-
-class LoginUp(LoginView):
-    template_name = 'blog/login.html'
-    form_class = LoginUserForm
-
-
-class RegisterDone(generic.ListView):
-    template_name = 'blog/register_done.html'
-    model = User
-
-
-def logout_user(request):
-    logout(request)
-    return redirect('login')
