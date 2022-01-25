@@ -4,6 +4,7 @@ from blog.views import PostDetail
 from blog.views import MyPostNew
 from blog.views import PostEdit
 
+
 urlpatterns = [
     path('', PostList.as_view(), name='post_list'),
     path('post/<int:pk>/', PostDetail.as_view(), name='post_detail'),

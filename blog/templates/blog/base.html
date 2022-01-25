@@ -16,10 +16,10 @@
                 </a>
                 <h1><a href="/">Django Blog</a></h1>
                 {% if user.is_authenticated %}
-                <li class="save"> {{user.username}} | <a href="logout">Logout</a></li>
+                <li class="save"> {{user.username}} | <a href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
                 <ul>
-                    <li class="save"><a href="{% url 'login' %}">Login Up</a> | <a href="{% url 'register' %}">Sign Up</a></li>
+                    <li class="save"><a href="{% url 'account_login' %}">Login Up</a> | <a href="{% url 'account_signup' %}">Sign Up</a></li>
                 </ul>
                 {% endif %}
             </div>
